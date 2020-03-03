@@ -89,7 +89,7 @@ func Implode(glue string, pieces []string) string {
 
 // Join - Alias of implode()
 func Join(a []string, sep string) string {
-	return Implode(a, sep)
+	return Implode(sep, a)
 }
 
 //StripTags - Strip HTML and PHP tags from a string
@@ -216,8 +216,6 @@ func Strtoupper(str string) string {
 	return strings.ToUpper(str)
 }
 
-
-
 // Strpos strpos()
 func Strpos(haystack, needle string, offset int) int {
 	length := len(haystack)
@@ -234,7 +232,6 @@ func Strpos(haystack, needle string, offset int) int {
 	}
 	return pos + offset
 }
-
 
 // Stripos stripos()
 func Stripos(haystack, needle string, offset int) int {
@@ -253,7 +250,6 @@ func Stripos(haystack, needle string, offset int) int {
 	}
 	return pos + offset
 }
-
 
 // Strrpos strrpos()
 func Strrpos(haystack, needle string, offset int) int {
@@ -339,7 +335,6 @@ func Substr(str string, start uint, length int) string {
 	return str[start:end]
 }
 
-
 // MbSubstr - Get part of string
 func MbSubstr(s string, start int, length ...int) string {
 	runes := []rune(s)
@@ -379,4 +374,3 @@ func Ucfirst(str string) string {
 func Ucwords(str string) string {
 	return strings.Title(str)
 }
-

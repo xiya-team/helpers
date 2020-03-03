@@ -6,12 +6,11 @@ import (
 	"os"
 	"path/filepath"
 	"syscall"
-	"time"
 )
 
 // Chgrp - Changes file group
 func Chgrp(name string, uid, gid int) error {
-	return Chown(name, uid, gid)
+	return os.Chown(name, uid, gid)
 }
 
 // Chmod chmod()
