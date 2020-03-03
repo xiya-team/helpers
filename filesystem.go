@@ -136,6 +136,10 @@ func Mkdir(filename string, mode os.FileMode) error {
 	return os.Mkdir(filename, mode)
 }
 
+func MkdirAll(filename string, mode os.FileMode)  error {
+	return os.MkdirAll(filename, mode)
+}
+
 // Realpath - Returns canonicalized absolute pathname
 func Realpath(path string) (string, error) {
 	return filepath.Abs(path)
