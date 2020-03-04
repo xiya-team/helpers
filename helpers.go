@@ -10,7 +10,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"hash/crc32"
-	"html"
 	"io"
 	"math/rand"
 	"net"
@@ -231,16 +230,6 @@ func Quotemeta(str string) string {
 		buf.WriteRune(char)
 	}
 	return buf.String()
-}
-
-// Htmlentities htmlentities()
-func Htmlentities(str string) string {
-	return html.EscapeString(str)
-}
-
-// HTMLEntityDecode html_entity_decode()
-func HTMLEntityDecode(str string) string {
-	return html.UnescapeString(str)
 }
 
 // Crc32 crc32()

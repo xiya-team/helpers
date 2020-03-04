@@ -2,26 +2,23 @@ package helpers
 
 import "strings"
 
-// ArrayMap is one of Array type
-type ArrayMap map[string]interface{}
+func ArrayChangeKeyase(arrayOrigin map[string]interface{}, changeTo int) map[string]interface{} {
 
-// Constants for ArrayChangeKeyCase
-const (
-	CaseLOWER = iota
-	CaseUPPER
-)
+	arrayReturn := make(map[string]interface{})
+	for key, value := range arrayOrigin {
 
-// ArrayChangeKeyCase - Changes the case of all keys in an array
-func ArrayChangeKeyCase(arr ArrayMap, Case int) ArrayMap {
+		keyNew := ""
 
-	var tmp = ArrayMap{}
-	for k, v := range arr {
-		if Case == CaseUPPER {
-			tmp[strings.ToUpper(k)] = v
-		} else if Case == CaseLOWER {
-			tmp[strings.ToLower(k)] = v
+		if changeTo == CASE_UPPER {
+			keyNew = strings.ToUpper(key)
+		} else if changeTo == CASE_LOWER {
+			keyNew = strings.ToLower(key)
+		} else {
+			keyNew = key
 		}
+
+		arrayReturn[keyNew] = value.(interface{})
 	}
 
-	return tmp
+	return arrayReturn
 }

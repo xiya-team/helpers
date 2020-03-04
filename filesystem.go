@@ -67,7 +67,7 @@ func FileExists(filename string) bool {
 	return true
 }
 
-// Filemtime filemtime()
+// Filemtime filemtime()  获取文件修改时间 返回unix时间戳
 func Filemtime(filename string) (int64, error) {
 	fd, err := os.Open(filename)
 	if err != nil {
