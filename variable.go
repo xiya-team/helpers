@@ -49,32 +49,24 @@ func Empty(v interface{}) bool {
 	switch val.Kind() {
 	case reflect.Bool:
 		return !val.Bool()
-
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		return val.Int() == 0
-
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
 		return val.Uint() == 0
-
 	case reflect.Float32, reflect.Float64:
 		return val.Float() == 0.00
-
 	case reflect.Complex64, reflect.Complex128:
 		return val.Complex() == 0+0i
-
 	case reflect.String:
 		realVal := val.String()
 		return realVal == "" || realVal == "0"
-
 	case reflect.Array, reflect.Slice, reflect.Map, reflect.Chan:
 		return val.Len() == 0
-
 	case reflect.Struct:
-		return val.NumField() == 0
+		return val.IsNil()
 	case reflect.Interface, reflect.Ptr:
 		return val.IsNil()
 	}
-
 	return reflect.DeepEqual(val, reflect.Zero(val.Type()).Interface())
 }
 
