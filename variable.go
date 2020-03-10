@@ -57,13 +57,10 @@ func Empty(v interface{}) bool {
 		return val.Float() == 0.00
 	case reflect.Complex64, reflect.Complex128:
 		return val.Complex() == 0+0i
-	case reflect.String:
-		realVal := val.String()
-		return realVal == "" || realVal == "0"
-	case reflect.Array, reflect.Slice, reflect.Map, reflect.Chan:
+	case reflect.String,reflect.Array:
 		return val.Len() == 0
-	case reflect.Struct:
-		return val.IsNil()
+	case reflect.Slice, reflect.Map, reflect.Chan:
+		return val.Len() == 0 || val.IsNil()
 	case reflect.Interface, reflect.Ptr:
 		return val.IsNil()
 	}
